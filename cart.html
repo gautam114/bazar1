@@ -1,0 +1,277 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <title>Cart</title>
+    <style>
+@media(min-width:401px){
+html{font-size:100%;}
+
+}
+@media(max-width:400px){
+    html{
+        font-size:65%;
+    }
+}
+    </style>
+  </head>
+  <body class='container-fluid'>
+    
+    <div class='container-fluid'>
+    <div class='row gy-2'>
+        <div class='col-md-8 col-12 mx-auto '>
+            <div class='row shadow bg-light'>
+                <div class='col-4 text-center d-flex align-items-center'>
+                    <img src="images/shoe1.png" width="100%" height="auto">
+                </div>
+                <div class='col-8'>
+                    <div class='row'>
+                        <div class='col-lg-8 col-12'>
+                        <h2>ShOes</h2>
+                        <p class='text-success'>&#8377;5000:00</p>
+                        <p class='text-danger'>discount 50%;</p>
+                        <p class='text-success'>original price <span class='text-decoration-line-through text-danger'>10000:00</span></p>
+                        </div>
+                        <div class='col-lg-4 col-md-5 col-8  '>
+                            <div class='input-group'>
+                                <button class='bi bi-file-minus input-group-text' id='minus1'></button>
+                                <input type='text' value='1' readonly class='form-control text-center' id='val'>
+                                <button class='bi bi-file-plus input-group-text' id='plus1'></button>
+                            </div>
+                        </div>
+                        <div class='col-12'>
+                            <div class='text-end'>
+                          <p>&#8377; <span id='price1'>5000</span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+    
+    
+            <div class='row shadow bg-light'>
+                <div class='col-4 text-center d-flex align-items-center'>
+                    <img src="images/shoe1.png" width="100%" height="auto">
+                </div>
+                <div class='col-8'>
+                    <div class='row'>
+                        <div class='col-lg-8 col-12'>
+                        <h2>ShOes</h2>
+                        <p class='text-success'>&#8377;2000:00</p>
+                        <p class='text-danger'>discount 50%;</p>
+                        <p class='text-success'>original price <span class='text-decoration-line-through text-danger'>10000:00</span></p>
+                        </div>
+                        <div class='col-lg-4 col-md-5 col-8  '>
+                            <div class='input-group'>
+                                <span class='bi bi-file-minus input-group-text' id='minus2'></span>
+                                <input type='text' value='1' readonly class='form-control text-center' id='val2' >
+                                <span class='bi bi-file-plus input-group-text' id='plus2'></span>
+                            </div>
+                        </div>
+                        <div class='col-12'>
+                            <div class='text-end'>
+                          <p >&#8377;<span id='price2'>2000</span></p>
+                            </div>
+                        </div>
+    
+    
+                        
+                    </div>
+                </div>
+            </div>
+    
+    
+        </div>
+    
+    
+    
+    
+    
+        
+        <div class='col-md-4 col-10 mx-auto bg-light '>
+     
+            <div class='row gy-2 shadow p-2'>
+                <div class='col-12'>
+                   
+                    <div class='d-flex justify-content-between'>
+                        <p>Total price</p>
+                        <p id='tp'></p>
+                    </div>
+                    <div class='d-flex justify-content-between'>
+                        <p>Tax</p>
+                        <p id='tax'>included</p>
+                    </div>
+                   
+                    <div class='d-flex justify-content-between'>
+                        <p>shipment price</p>
+                        <p id='sp'>50<span>&#8377;</span></p>
+                    </div>
+                    <div class='d-flex justify-content-between'>
+                        <p>Final price</p>
+                        <p id='fp'><span>&#8377;</span></p>
+                    </div>
+                   
+                   
+                   
+    
+                </div>
+                <div class='col-12'>
+                    <div class='accordion'>
+                       <div class='accordion-item'>
+                           <div class='accordion-header'>
+                               <button class='accordion-button' data-bs-target='#colap' data-bs-toggle='collapse'>use discount couon</button>
+                           </div>
+                           <div class='accordion-collapse collapse' id='colap'>
+                               <div class='accordion-body'>
+                                   <a onclick='discount()'>#gotm</a>
+                               </div>
+                           </div>
+                       </div>
+                    </div>
+                </div>
+            </div>
+    
+        </div>
+    </div>
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <script type='text/javascript'>
+    'use strict';
+    let val=document.getElementById('val');
+    let value=val.value;
+    let total=document.getElementById('tp');
+    let price1=parseInt(document.getElementById('price1').innerHTML);
+    let price2=parseInt(document.getElementById('price2').innerHTML);
+    total.innerHTML=price1+price2;
+    let sp=document.getElementById('sp');
+    let final=document.getElementById('fp');
+    final.innerHTML=(parseInt(total.innerHTML)+parseInt(sp.innerHTML));
+    
+    
+    document.getElementById('plus1').addEventListener('click',()=>{
+        if(value==5){
+          val.style.color='red'
+        }else {
+            value++;
+            val.value=value;
+            val.style.color='black';
+            
+    
+    total.innerHTML=(parseInt(total.innerHTML)+price1);
+    sp.innerHTML=`50<span>&#8377;</span>`;
+    fp.innerHTML=(parseInt(total.innerHTML)+parseInt(sp.innerHTML));
+        }
+    });
+    
+    document.getElementById('minus1').addEventListener('click',()=>{
+    if(value>=1){
+        value--;
+        val.value=value;
+        val.style.color='black';
+        total.innerHTML=(parseInt(total.innerHTML)-price1);
+        if(total.innerHTML==0){sp.innerHTML=`0<span>&#8377;</span>`;}
+    
+        fp.innerHTML=(parseInt(total.innerHTML)+parseInt(sp.innerHTML));
+    
+    
+    
+    }else if(value==0){
+        val.style.color='red';
+    }
+    });
+    
+    
+    
+    
+    
+    
+    let val2=document.getElementById('val2');
+    let value2=val2.value;
+    
+    document.getElementById('plus2').addEventListener('click',()=>{
+        if(value2==5){
+          val2.style.color='red'
+        }else {
+            value2++;
+            val2.value=value2;
+            val2.style.color='black';
+            total.innerHTML=(parseInt(total.innerHTML)+price2);
+    sp.innerHTML=`50<span>&#8377;</span>`
+    
+    fp.innerHTML=(parseInt(total.innerHTML)+parseInt(sp.innerHTML));
+    
+    }
+    });
+    
+    document.getElementById('minus2').addEventListener('click',()=>{
+    if(value2>=1){
+        value2--;
+        val2.value=value2;
+        val2.style.color='black';
+        total.innerHTML=(parseInt(total.innerHTML)-price2)
+        if(total.innerHTML==0){sp.innerHTML=`0<span>&#8377;</span>`;}
+    
+        fp.innerHTML=(parseInt(total.innerHTML)+parseInt(sp.innerHTML));
+    
+    
+    }else if(value2==0){
+        val2.style.color='red';
+    }
+    });
+    
+    
+    let count=0;
+    function discount(){
+     let fprice= fp.innerHTML;
+    if(count==0){
+     fp.innerHTML=`${fprice-100}`;
+    count++;
+    }
+    
+    }
+    
+    
+    
+    
+    </script>
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    -->
+  </body>
+</html>

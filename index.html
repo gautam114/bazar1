@@ -1,0 +1,487 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <link rel='stylesheet' href='market.css'>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css'>
+
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css'>
+    <title>BAZAR</title>
+  </head>
+  <body onload='load()'>
+   <header>
+     <nav class='navbar navbar-expand-lg navbar-dark position-fixed fixed-top '>
+       <div class='container'>
+         <button class='navbar-toggler me-auto' data-bs-target='#colap' data-bs-toggle='collapse'><span class='navbar-toggler-icon'></span></button>
+         <div class='input-group w-50  navbar-brand'>
+<span class='input-group-text bg-warning'>MARKET</span><input type='search' class='form-control' placeholder='search' readonly><span class='bi bi-search input-group-text '></span>
+         </div>
+         <div class='collapse navbar-collapse' id='colap'>
+           <ul class='navbar-nav ms-auto ' id='li'>
+            <li class='nav-item'><a href='#' class='nav-link mx-2'>Home</a></li>
+            <li class='nav-item dropdown'>
+              <a href='#' class='nav-link mx-2 dropdown-toggle' data-bs-toggle='dropdown' >LOGIN</a>
+              <ul class='dropdown-menu'>
+                <li class='d-flex justify-content-around align-items-center'>
+                  <a class='dropdown-item' data-bs-target='#login' data-bs-toggle='modal'>Log in</a><a href='#' class='dropdown-item text-primary' data-bs-target='#signup' data-bs-toggle='modal'>sign Up</a>
+                </li>
+                <li><a href="#" class='dropdown-item'><span class='bi bi-person-badge'> </span>My profile</a></li>
+                <li><a href="#" class='dropdown-item'><span class='bi bi-heart-fill text-dark'></span>My wishlist</a></li>
+              <li class='dropdown-divider'></li>
+              <li class='dropdown-item' id='acnt'></li>
+              </ul>
+            </li>
+            <li class='nav-item dropdown'>
+              <a href='#' class='nav-link mx-2 dropdown-toggle' data-bs-toggle='dropdown'>More</a>
+              <ul class='dropdown-menu'>
+                <li><a href='#' class='dropdown-item' data-bs-target='#sof' data-bs-toggle='modal'><span class='bi bi-basket-fill'> </span>Sell on flipkart</a></li>
+                <li><a href='#' class='dropdown-item'><span class='bi bi-telephone-fill'> </span>24/7 customer service</a></li>
+                <li><a href='#' class='dropdown-item'><span class='bi bi-graph-up'> </span>Advertise</a></li>
+                <li><a href='#' class='dropdown-item'><span class='bi bi-arrow-down'> </span>Advertise</a></li>
+                <li class='dropdown-divider'></li>
+                <li class='dropdown-item'><span class='bi bi-question-circle'></span>Help</li>
+
+              </ul>
+            </li>
+            <li class='nav-item'><a href='cart.html' class='nav-link mx-2'><span class='bi bi-cart-fill'></span></a></li>
+           </ul>
+          
+         </div>
+       </div>
+     </nav>
+     <!---collapse---->
+     <div class='corousel slide mt-5' data-bs-ride='carousel'>
+       <div class='carousel-inner'>
+         <div class='carousel-item'>
+           <img src=''
+         </div>
+       </div>
+     </div>
+     <!---carousel-->
+     <div class='carousel slide' data-bs-ride="carousel" id='c'>
+       <div class='carousel-inner'>
+         <div class='carousel-item active'>
+           <img src='screnshot/s2.png' width='100%' height='200'>
+         </div>
+         <div class='carousel-item '>
+          <img src='screnshot/s4.png' width='100%' height='200'>
+        </div>
+        <div class='carousel-item '>
+          <img src='screnshot/s3.png' width='100%' height='200'>
+        </div>
+        <button class='carousel-control-prev' data-bs-target='#c' data-bs-slide='prev'><span class='carousel-control-prev-icon'></span></button>
+        <button class='carousel-control-next' data-bs-target='#c' data-bs-slide='next'><span class='carousel-control-next-icon'></span></button>
+      <div class='carousel-indicators'>
+        <button data-bs-target="#c" data-bs-slide-to="0" class='active'></button>
+        <button data-bs-target="#c" data-bs-slide-to="1"></button>
+        <button data-bs-target="#c" data-bs-slide-to="2"></button>
+      </div> 
+      </div>
+     </div>
+   </header>
+<!---categories api-->
+<div class='container-fluid my-5'>
+<div class='row'>
+  <div class='col-md-3 col-10 mx-auto'>
+    <div class='row' id='category'>
+<select id='sel' class='form-select'>
+
+</select>
+    </div>
+  </div>
+  <div class='col-md-9 col-12 mx-auto'>
+    <div class='row' id='ro'>
+
+    </div>
+  </div>
+
+</div>
+
+</div>
+<!----
+<div class='margin-y'>
+  <table class='table table-dark table-hover table-responsive table-striped'>
+    <caption>Delta cases</caption>
+    <thead>
+      <tr>
+        <th>Dates</th>
+        <th>Delta</th>
+        <th>Delta 7</th>
+        <th>Total</th>
+      </tr>
+    </thead>
+      <tbody id='tbo'>
+
+      </tbody>
+  </table>
+</div>
+-->
+
+
+
+
+<!---owl---->
+<div class='w-75 mx-auto my-4'>
+  <h1 class='text-center text-secondary my-2'>NEW ITEMS</h1>
+<div class='row'>
+<div class="owl-carousel owl-theme">
+  <div class="item">
+    <div class='card text-center p-2'>
+      <img src="images/jeans.jpg" height='100' width='80%'>
+      <div class='body'>
+<p>jeans</p>
+      </div>
+      <div class='footer'>
+<button class='btn btn-primary'>ADD</button>
+      </div>
+    </div>
+  </div>
+  <div class="item">
+    <div class='card text-center p-2'>
+      <img src="images/jeans.jpg" height='100' width='80%'>
+      <div class='body'>
+<p>jeans</p>
+      </div>
+      <div class='footer'>
+<button class='btn btn-primary'>ADD</button>
+      </div>
+    </div>
+  </div>
+  <div class="item">
+    <div class='card text-center p-2'>
+      <img src="images/shirt.jpg" height='100' width='80%'>
+      <div class='body'>
+<p>jeans</p>
+      </div>
+      <div class='footer'>
+<button class='btn btn-primary'>ADD</button>
+      </div>
+    </div>
+  </div>
+  <div class="item">
+    
+    <div class='card text-center p-2'>
+      <img src="images/shoe1.png" height='100' width='80%'>
+      <div class='body'>
+<p>jeans</p>
+      </div>
+      <div class='footer'>
+<button class='btn btn-primary'>ADD</button>
+      </div>
+    </div>
+  </div>
+  <div class="item">
+    <div class='card text-center p-2'>
+      <img src="images/shoes5.png" height='100' width='80%'>
+      <div class='body'>
+<p>jeans</p>
+      </div>
+      <div class='footer'>
+<button class='btn btn-primary'>ADD</button>
+      </div>
+    </div>
+  </div>
+  <div class="item">
+    <div class='card text-center p-2'>
+      <img src="images/shirt.jpg" height='100' width='80%'>
+      <div class='body'>
+<p>jeans</p>
+      </div>
+      <div class='footer'>
+<button class='btn btn-primary'>ADD</button>
+      </div>
+    </div>
+  </div>
+  <div class="item">
+    <div class='card text-center p-2'>
+      <img src="images/shoe3.png" height='100' width='80%'>
+      <div class='body'>
+<p>jeans</p>
+      </div>
+      <div class='footer'>
+<button class='btn btn-primary'>ADD</button>
+      </div>
+    </div>
+  </div>
+  <div class="item">
+    <div class='card text-center p-2'>
+      <img src="images/shoes5.png" height='100' width='80%'>
+      <div class='body'>
+<p>jeans</p>
+      </div>
+      <div class='footer'>
+<button class='btn btn-primary'>ADD</button>
+      </div>
+    </div>
+  </div>
+ 
+</div>
+</div>
+</div>
+
+
+
+
+
+<!---register product---->
+<div id='sellTable'  style='display:none;'>
+  <table class='table table-responsive table-hover table-striped table-dark w-100 caption-top' >
+    <caption>product details</caption>
+    <thead>
+      <tr>
+        <th>Product name</th>
+        <th>Product price</th>
+        <th>Deliver city</th>
+        <th>Stock</th>
+      </tr>
+    </thead>
+    <tbody id='tbody'>
+  <tr>
+    <td id='ln'></td>
+    <td id='lp'></td>
+    <td id='lcity'></td>
+    <td id='lc'></td>
+  </tr>
+    </tbody>
+  </table>
+  <button class='btn btn-link' data-bs-target='#sof' data-bs-toggle='modal'>Edit details</button>
+  <button class='btn btn-primary' onclick='document.getElementById("h1").innerHTML="registerd"'>Register</button>
+  <h1 id='h1' class='text-center text-success'></h1>
+  </div>
+  <!----footer---->
+  
+<footer class='mt-auto text-center p-2'>
+  <h3 class='py-2'>Developer is<span class='bi bi-hammer text-danger'>Goutam</span> parchanda</h3>
+  <div class='d-flex justify-content-between'>
+        <div>
+          <ul type='none' class='text-start'>
+            <li class='opacity-25 my-2 fw-bold'>ABOUT</li>
+            <li>Contact us</li>
+            <li>About us</li>
+            <li>Careers</li>
+            <li>Flipcart stories</li>
+            <li>flipkart wholesale</li>
+          </ul>
+        </div>
+<div>
+  <ul class='text-start'type='none'>
+<li class='opacity-25 my-2 fw-bold'>HELP</li>
+<li>Payements</li>
+<li>Shopping</li>
+<li>Cancellation & returns</li>
+<li>FAQ</li>
+
+</ul>
+</div>
+<div>
+  <ul  class='text-start'type='none'>
+    <li  class='opacity-25 my-2 fw-bold'>Mail:us</li>
+
+<li>Flipkart Internet Private Limited,</li>
+
+<li>Buildings Alyssa, Begonia &</li>
+
+<li>Clove Embassy Tech Village,</li>
+
+<li>Outer Ring Road, Devarabeesanahalli Village,</li>
+
+<li>Bengaluru, 560103,</li>
+
+<li>Karnataka, India</li>
+
+  </ul>
+</div>
+
+<div>
+  <ul type='none' class='text-start'>
+    <li class='opacity-25 my-2 fw-bold'>Policy</li>
+    <li>Contact us</li>
+    <li>About us</li>
+    <li>Careers</li>
+    <li>Flipcart stories</li>
+    <li>flipkart wholesale</li>
+  </ul>
+</div>
+
+  </div>
+
+  <p class='text-center opacity-50 my-2'>under terms and codition <span class='text-white'>&copy</span></p>
+
+</footer>
+
+
+
+
+<!--log in modal-->
+<div class='modal' id='login'>
+  <div class='modal-dialog modal-dialog-centered'>
+    <div class='modal-content'>
+      <div class='modal-body p-0 position-relative'>
+        <button class='btn btn-close position-absolute ' data-bs-dismiss='modal' id='modal_b'></button>
+    
+        <div class='row bg-transparent'>
+          <div class='col-md-4 col-10 mx-auto d-flex flex-column justify-content-between text-center ' id='black'>
+           
+            <div>
+              <h1 class='text-white text-center'>Login</h1>
+            </div>
+            <div>
+<img src='image/Untitled design.png'  class='img-fluid' id='img'>
+            </div>
+           
+          </div>
+          <div class='col-md-8 col-10 mx-auto bg-light '>
+            <dl>
+              <dt>name</dt>
+              <dd>
+                <input type='text' class='form-control border border-top-0 border-end-0 border-start-0 border-dark'  id='nm'>
+              </dd>
+              <dt class='d-flex justify-content-between'>password   <span class='text-danger fw-bold'>Forgot password</span></dt>
+              <dd>
+                <input type='password' class='form-control border border-top-0 border-end-0 border-start-0 border-dark' id='ps'>
+              </dd>
+              <dt class='d-grid'>
+                <button class='btn btn-primary' data-bs-dismiss="modal">Log in</button>
+                <p class='text-center'>or</p>
+                <button class='btn btn-light shadow'>Request OTP</button>
+              </dt>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!--sign up modal-->
+<div class='modal' id='signup'>
+  <div class='modal-dialog'>
+    <div class='modal-content p-2'>
+      <div class='modal-header bg-primary'>
+        <h1>SIGN UP</h1>
+        <button class='btn btn-close btn-close-white' data-bs-dismiss='modal'></button>
+      </div>
+      <div class='modal-body'>
+        <dl>
+          <dt>Name</dt>
+          <dd>
+            <input type='text' placeholder="name" class='form-control' required id='acnt_name'>
+          </dd>
+          <dt>Password</dt>
+          <input type='text'placeholder='password' class='form-control' required onkeyup='password()' id='password'>
+          <span id='pas_msg'></span>
+        </dl>
+        <dt>Email</dt>
+        <dd>
+          <input type='email' placeholder='email' class='form-control'>
+        </dd>
+        <dt>phone number</dt>
+        <dd>
+          <input type='number' pattern='[0-9]{10}' placeholder="number" class='form-control'>
+        </dd>
+        <dt>
+          <span>refresh captcha</span><button class='btn btn-light' onclick='refresh()'><span class='bi bi-arrow-clockwise'></span></button>
+        </dt>
+        <dd id='code'>
+h
+        </dd>
+        <dt>
+          <input type='text' placeholder='enter captcha' class='form-control' id='captcha' onkeyup="clean()">
+          
+          <span id='msg' class='text-danger'></span>
+        </dt>
+
+        <dd class='d-grid my-2'>
+          <button class='btn btn-primary' onclick='verify()' id='verifi'   >Sign up</button>
+        </dd>
+      </div>
+    </div>
+  </div>
+</div>
+<!--sell on flipkart modal-->
+
+
+<div class='modal' id='sof'>
+  <div class='modal-dialog modal-dialog-centered'>
+    <div class='modal-content '>
+      <div class='modal-header bg-primary'>
+        <h1>Sell on Market</h1>
+        <button class='btn btn-close-white' data-bs-dismiss='modal'></button>
+      </div>
+      <div class='modal-body'>
+        <dl>
+          <dt>Product name</dt>
+          <dd>
+            <input type='text' id='pn' class='form-control'>
+          </dd>
+          <dt>price</dt>
+          <dd>
+            <input type='number' id='pp' class='form-control'>
+          </dd>
+          <dt>City</dt>
+          <dd>
+            <select class='form-select' id='pcity'>
+              <option>rtk</option>
+            <option>hyd</option>
+            <option>delhi</option>
+            </select>
+          </dd>
+          <dt>stock</dt>
+          <dd class='form-switch form-check'>
+            <input type='checkbox' id='pc' class='form-check-input'><label class='form-check-label'>availibilty</label>
+          </dd>
+         
+        </dl>
+      </div>
+      <div class='modal-footer'>
+      <a href='#sellTable'><button class='btn btn-primary' onclick='sell()' data-bs-dismiss="modal">register</button></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+    
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+      $('.owl-carousel').owlCarousel({
+      loop:true,
+      margin:10,
+      nav:true,
+      responsive:{
+          0:{
+              items:1
+          },
+          600:{
+              items:3
+          },
+          1000:{
+              items:5
+          }
+      }
+  })
+    </script>
+   
+<script src='market.js'></script>
+
+  </body>
+</html>

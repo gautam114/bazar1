@@ -1,0 +1,49 @@
+*{
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+}
+html{
+    height:100vh;
+    font-size: 62.5%;
+}
+body{
+    display:flex;
+    flex-direction: column;
+}
+nav{
+    background:rgb(60,60,50)!important;
+}
+#li li a:hover{
+   color:black;
+}
+#black{
+    background:black;
+}
+
+#modal_b{
+    right:-10%;
+    top:0%;
+    border-radius: 50%;
+
+    font-size: large;
+}
+@media(max-width:400px){
+    #img{width:100px;
+          height:100px;}
+}
+#picture{
+    width:10px;
+}
+footer{
+    background:rgba(50,50,50,0.6);
+}
+@media(min-width:401px){
+    html{font-size:100%;}
+}
+@media(max-width:400px){
+    html{font-size:65.5%;}
+    footer{
+        font-size:60%;
+    }
+}

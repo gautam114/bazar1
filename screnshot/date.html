@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' href='node_modules/bootstrap/dist/css/bootstrap.css'>
+    <link rel='stylesheet' href='node_modules/bootstrap-icons/font/bootstrap-icons.css'>
+    <title>Document</title>
+</head>
+<body onload="wish()">
+    <!----
+  <script type='text/javascript'>
+'use strict';
+var a;
+    function load(){
+
+        
+           
+
+
+
+
+    fetch('https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&page=2&api_key=DEMO_KEY')
+     .then((convert)=>{
+         return convert.json();
+     })
+     .then((data)=>{
+       a=data;
+       fun();
+     })
+    .catch((error)=>{
+        console.log(error);
+    })
+    
+    }
+    function fun(){
+        for(let i of a.photos){
+            let tr=document.createElement('tr');
+            let td_earth=document.createElement('td');
+            let td_landing=document.createElement('td');
+            let td_launching=document.createElement('td');
+            let td_image=document.createElement('td');
+            let td_status=document.createElement('td');
+            let img=document.createElement('img');
+            
+            var months=['jan','feb','mar','apr','may','jun','july','aug','sept','oct','nov','dec'];
+            var weeks=['sunday','monday','tuesday','wedneday','thursday','friday','saturday'];
+
+            td_earth.innerHTML=new Date(i.earth_date);
+            
+            let day=new Date(i.rover.landing_date);/*i want months and days in english simple toloacledatestring gives in digits*/
+ td_landing.innerHTML=weeks[day.getDay()]+'-'+months[day.getMonth()]+'-'+day.getDate()+'-'+day.getFullYear();
+                             
+
+
+            td_launching.innerHTML=new Date(i.rover.launch_date).toLocaleTimeString();
+            
+            img.src=i.img_src;
+            img.height='150';
+            img.width='150';
+           td_image.appendChild(img);
+            td_status.innerHTML=i.rover.status;
+
+
+            tr.appendChild(td_earth);
+            tr.appendChild(td_landing);
+            tr.appendChild(td_launching);
+            tr.appendChild(td_image);
+            tr.appendChild(td_status);
+
+
+            document.getElementById('tbody').appendChild(tr);
+        
+        }
+
+       
+    }
+    function wish(){
+        let nm=document.getElementById('nam');
+           let name=prompt('enter ur name');
+           let time=new Date().getHours();
+     console.log(time);
+           if(time>=0 && time<=12){
+               nm.innerHTML=`${name} ! GOOD MORNING`;
+           }
+               else if(time>=13 && time<=17){
+                nm.innerHTML=`${name} ! GOOD AFTER NOON`;
+
+               }
+               else if(time>=18 &&  time<=20){
+               nm.innerHTML=`${name} ! GOOD EVENING`;
+
+               }
+               else if(time>=21 &&  time<=24){
+               nm.innerHTML=`${name} ! GOOD NIGHT`;
+
+               }
+           
+        
+    }
+</script>
+
+
+
+<h1 id='nam'></h1>
+<button class='btn btn-primary' onclick='load()'>fetch data</button>
+    <table class='table table-hover table-striped table-success table-responsive'>
+        <thead>
+            <tr>
+                <th>Earth date</th>
+                <th>Landing Date</th>
+                <th>Launching date</th>
+                <th>Image</th>
+                <th>status</th>
+            </tr>
+        </thead>
+        <tbody id='tbody'>
+            
+        </tbody>
+    </table>
+-->
+
+
+
+
+<div>
+    <h1 id='nm' class='text-center'></h1>
+    <table class='table table-bordered table-light table-hover table-striped'>
+        
+        <thead>
+            <tr>
+                <th>camera</th>
+                <th>image</th>
+                <th>earth date</th>
+                <th>landing date</th>
+                <th>launch date</th>
+                
+            </tr>
+        </thead>
+        <tbody id='tbody'>
+           
+        </tbody>
+    </table>
+</div>
+
+
+<script>
+    function wish(){
+
+let nam=document.getElementById('nm');
+let nm=prompt('enter ur name');
+let time=new Date().getHours();
+
+if(time>=0 && time<=12){
+nam.innerHTML=`${nm} !GOOD MORNING`;
+}else if(time>12 && time<=17){
+    nam.innerHTML=`${nm} !GOOD AFTERNOON`;
+
+}else if(time>17 && time<=20){
+nam.innerHTML=`${nm} !GOOD EVENING`;
+
+}else if(time>20 && time<=24){
+nam.innerHTML=`${nm} !GOOD NIGHT`;
+
+}
+fetching();
+    }
+var a;
+    function fetching(){
+        
+        fetch('https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&api_key=DEMO_KEY')
+        .then((convert)=>{
+            return convert.json();
+        })
+        .then((data)=>{
+            a=data;
+            fun();
+        })
+        .catch((error)=>{
+            console.log(error);
+        })
+    }
+    function fun(){
+        var months=['jan','feb','mar','apr','may','jun','july','aug','sept','oct','nov','dec'];
+        var weeks=['sun','mon','tue','wed','thu','fri','sat'];
+        for(let i of a.photos){
+            let tr=document.createElement('tr');
+            let tdcamera=document.createElement('td');
+            let tdland=document.createElement('td');
+            let tdlaunch=document.createElement('td');
+            let tdearth=document.createElement('td');
+            let tdimage=document.createElement('td');
+            let pic=document.createElement('img');
+              pic.src=i.img_src;
+              pic.height='150';
+              pic.width='150'
+              tdimage.appendChild(pic);
+
+
+            tdcamera.innerHTML=i.camera.name;
+            tdland.innerHTML=new Date(i.rover.landing_date);
+           // tdland.setDate(20);
+            tdlaunch.innerHTML=new Date(i.rover.launch_date).toLocaleTimeString();
+            let day=new Date(i.earth_date);
+//for changing date we use this --- day.setDate(1);
+            tdearth.innerHTML=weeks[day.getDay()]+'-'+day.getFullYear()+'-'+months[day.getMonth()]+'-'+day.getDate();
+                 
+           tr.appendChild(tdcamera);
+           tr.appendChild(tdimage);
+           tr.appendChild(tdearth);
+           tr.appendChild(tdland);
+           tr.appendChild(tdlaunch);
+
+           document.getElementById('tbody').appendChild(tr);
+
+
+
+
+        }
+    }
+</script>
+
+
+    <script src='node_modules/jquery/dist/jquery.js'></script>
+    <script src='node_modules/bootstrap/dist/js/bootstrap.bundle.js'></script>
+</body>
+</html>
